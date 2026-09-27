@@ -147,7 +147,7 @@ export default function Home({ navigation }) {
 
           <Text style={styles.groupSubtitle}>
             Group Number:{' '}
-            <Text style={styles.bold}>[GROUP NUMBER]</Text>
+            <Text style={styles.bold}>3</Text>
           </Text>
 
           <View
@@ -343,7 +343,12 @@ export default function Home({ navigation }) {
       </View>
 
       {/* DATA CALLOUT */}
-      <View style={styles.dataSection}>
+      <View
+        style={[
+          styles.dataSection,
+          isMobile && styles.dataSectionMobile,
+        ]}
+      >
 
         <Text style={styles.dataNumber}>
           123
@@ -744,6 +749,8 @@ const styles = StyleSheet.create({
     lineHeight: 23,
   },
 
+  /* FIXED RESPONSIVE DATA SECTION */
+
   dataSection: {
     backgroundColor: GOLD,
     paddingHorizontal: 35,
@@ -754,6 +761,15 @@ const styles = StyleSheet.create({
     gap: 25,
   },
 
+  dataSectionMobile: {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    paddingHorizontal: 25,
+    paddingVertical: 35,
+    gap: 8,
+  },
+
   dataNumber: {
     color: NAVY,
     fontSize: 52,
@@ -762,6 +778,13 @@ const styles = StyleSheet.create({
 
   dataTextContainer: {
     maxWidth: 650,
+    flexShrink: 1,
+  },
+
+  dataTextContainerMobile: {
+    width: '100%',
+    maxWidth: '100%',
+    flexShrink: 1,
   },
 
   dataTitle: {
@@ -775,6 +798,8 @@ const styles = StyleSheet.create({
     color: NAVY,
     fontSize: 14,
     lineHeight: 22,
+    width: '100%',
+    flexShrink: 1,
   },
 
   footer: {
@@ -789,6 +814,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '900',
     marginBottom: 7,
+    textAlign: 'center',
   },
 
   footerText: {
